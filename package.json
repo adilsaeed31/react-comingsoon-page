@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel index.html"
+    "build": "parcel build index.html"
   },
   "author": "Muhammad Adil",
   "license": "ISC",

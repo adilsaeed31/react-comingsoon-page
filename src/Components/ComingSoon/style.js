@@ -3,11 +3,11 @@ import BG from '../../assets/images/background.jpg'
 
 const height = window.innerHeight
 
-// window.addEventListener('resize', () => {
-//   document.getElementById(
-//     'main-wrapper'
-//   ).style.cssText = `height: ${window.innerHeight}px`
-// })
+window.addEventListener('resize', () => {
+  document.getElementById(
+    'main-wrapper'
+  ).style.cssText = `height: ${window.innerHeight}px`
+})
 
 export const GlobalStyle = createGlobalStyle`
   html, body {
@@ -44,14 +44,14 @@ export const BGTransparent = Styled.div`
   height: 100%;
   background: ${props => props.theme.main};
   opacity: .8;  
+
 `
 
 export const Wrapper = Styled.div`
   position: absolute;
   width: 100%;
   overflow: hidden;
-  /* height: ${height}px;  */
-  height: 100%; 
+  height: ${height}px;
 `
 
 export const Container = Styled.div`
@@ -111,11 +111,31 @@ export const Box = Styled.div`
 
 export const Img = Styled.img`
   position: absolute;
-  /* width: 32%;
-  height: 80%; */
   left: -10px;
   bottom: -10px;
   opacity: ${props => props.theme.logoOpacity};
+ 
+
+  @media screen and (min-width: 320px) and (max-width: 768px) {
+    width: 600px;
+    height: auto;
+  }
+
+  @media (min-width: 1366px) {
+    width: 400px;
+    height: auto;
+  }
+
+  @media (min-width: 1920px) {
+    width: 530px;
+    height: 1200px;
+  }
+
+  @media (min-width: 2560px) {
+    width: 700px;
+    height: 1200px;
+  }
+ 
 `
 
 export const Title = Styled.div`
