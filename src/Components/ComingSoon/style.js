@@ -135,7 +135,6 @@ export const Img = Styled.img`
     width: 700px;
     height: 1200px;
   }
- 
 `
 
 export const Title = Styled.div`
