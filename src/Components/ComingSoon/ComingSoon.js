@@ -22,6 +22,7 @@ import Logo from '../../assets/images/logo.png'
 import LogoY from '../../assets/images/logoy.png'
 
 import Check from '../../assets/images/check.png'
+import CheckY from '../../assets/images/checky.png'
 
 const theme = {
   main: '#d8b153',
@@ -140,7 +141,7 @@ const ComingSoon = () => {
                         <img
                           width="21"
                           height="21"
-                          src={Check}
+                          src={mode ? Check : CheckY}
                           alt="Check Icon"
                         />
                       )}
