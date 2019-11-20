@@ -19,6 +19,9 @@ import {
 import CounterTickComponent from './CounterTickComponent'
 
 import Logo from '../../assets/images/logo.png'
+import LogoW from '../../assets/images/logow.png'
+import LogoY from '../../assets/images/logoy.png'
+
 import Check from '../../assets/images/check.png'
 
 const theme = {
@@ -31,9 +34,9 @@ const theme = {
 
 const invertedTheme = {
   main: 'black',
-  primaryTextColor: 'white',
-  primaryBorderColor: 'white',
-  logoOpacity: '1',
+  primaryTextColor: '#d8b153',
+  primaryBorderColor: '#d8b153',
+  logoOpacity: '.2',
   isLoadingColor: 'black',
 }
 
@@ -103,7 +106,7 @@ const ComingSoon = () => {
           <i className="fa fa-adjust"></i>
         </ToggleBtn>
         <Wrapper id="main-wrapper">
-          <Img src={Logo} />
+          <Img src={mode ? Logo : LogoY} />
           <Container>
             <Grid direction="column">
               <Box

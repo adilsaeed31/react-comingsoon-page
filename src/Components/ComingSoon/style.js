@@ -1,5 +1,5 @@
 import Styled, { createGlobalStyle } from 'styled-components'
-import BG from '../../assets/images/background.png'
+import BG from '../../assets/images/background.jpg'
 
 const height = window.innerHeight
 
