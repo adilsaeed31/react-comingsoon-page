@@ -19,7 +19,6 @@ import {
 import CounterTickComponent from './CounterTickComponent'
 
 import Logo from '../../assets/images/logo.png'
-import LogoW from '../../assets/images/logow.png'
 import LogoY from '../../assets/images/logoy.png'
 
 import Check from '../../assets/images/check.png'
