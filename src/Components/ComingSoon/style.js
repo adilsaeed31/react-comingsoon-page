@@ -43,7 +43,8 @@ export const GlobalStyle = createGlobalStyle`
     margin-top: 12px !important;
 
     @media screen and (min-width: 320px) and (max-width: 768px) {
-      font-size: 10 !important;
+      font-size: 10px !important;
+      text-align: center;
     } 
   }
   .top-div {
@@ -168,6 +169,7 @@ export const Box = Styled.div`
 
     @media screen and (min-width: 320px) and (max-width: 768px) {
       width: 267px;
+      z-index: 1000;
     }
   }
 `
@@ -179,9 +181,9 @@ export const Img = Styled.img`
   opacity: ${props => props.theme.logoOpacity};
  
   @media screen and (min-width: 320px) and (max-width: 768px) {
-    width: 440px;
+    width: 300px;
     height: 77%;
-    margin-left: -4.9em;
+    margin-left: -3.2em;
   }
 
   @media (min-width: 1024px) {
