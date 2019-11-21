@@ -110,12 +110,13 @@ const ComingSoon = () => {
           <Container>
             <Grid direction="column">
               <Box
+                className="top-div"
                 direction="column"
                 justify="flex-end"
                 align="center"
                 flex="1.6"
               >
-                <Title>Coming Soon</Title>
+                <Title className="cs-text">Coming Soon</Title>
               </Box>
               <Box flex="1" justify="center" className="counterDiv">
                 <Countdown
@@ -123,8 +124,14 @@ const ComingSoon = () => {
                   renderer={renderer}
                 />
               </Box>
-              <Box direction="column" justify="flex-start" align="center">
-                <p>Get Notified when it's ready</p>
+              <Box
+                className="bottom-div"
+                direction="column"
+                justify="flex-end"
+                align="center"
+                flex="1"
+              >
+                <p className="notify-text">Get Notified when it's ready</p>
                 <Box flex="0">
                   <Form onSubmit={handleSubmit}>
                     <input
@@ -148,7 +155,7 @@ const ComingSoon = () => {
                     </Button>
                   </Form>
                 </Box>
-                <p>{hasMsg}</p>
+                <p className="has-msg">{hasMsg}</p>
               </Box>
             </Grid>
           </Container>

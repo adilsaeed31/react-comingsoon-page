@@ -20,6 +20,8 @@ export const GlobalStyle = createGlobalStyle`
         -moz-background-size: cover;
         -o-background-size: cover;
         background-size: cover;
+        width: 100%;
+        height: ${height}px;
   }
 
   .counterDiv {
@@ -36,6 +38,64 @@ export const GlobalStyle = createGlobalStyle`
     font-weight: bold;
     color: ${props => props.theme.primaryTextColor};
   } 
+
+  .has-msg {
+    margin-top: 12px !important;
+
+    @media screen and (min-width: 320px) and (max-width: 768px) {
+      font-size: 10 !important;
+    } 
+  }
+  .top-div {
+    @media screen and (min-width: 320px) and (max-width: 768px) {
+      flex: 0 !important;
+      padding-top: 80px;
+
+      .cs-text {
+        font-size: 20px;
+        letter-spacing: 10px;
+      }
+    } 
+  }
+
+  .bottom-div {
+    @media screen and (min-width: 320px) and (max-width: 768px) {
+      flex: 1  !important;
+      padding-bottom: 40px;
+    } 
+
+    @media (min-width: 1024px) {
+      flex: 1  !important;
+      padding-bottom: 40px;
+    }
+
+    @media (min-width: 1280px) {
+      flex: 1  !important;
+      padding-bottom: 40px;
+    }
+
+    @media (min-width: 1366px) {
+      flex: 1  !important;
+      padding-bottom: 40px;
+    }
+
+    @media (min-width: 1920px) {
+      flex: 1  !important;
+      padding-bottom: 100px;
+    }
+
+    @media (min-width: 2560px) {
+      flex: 1  !important;
+      padding-bottom: 100px;
+    }
+  }
+
+  .notify-text {
+    @media screen and (min-width: 320px) and (max-width: 768px) {
+      font-size: 12px !important;
+    }
+  }
+  
 `
 
 export const BGTransparent = Styled.div`
@@ -57,6 +117,7 @@ export const Wrapper = Styled.div`
 export const Container = Styled.div`
   display: flex;
   flex: 1;
+  justify-content: center;
   height: 100%;
 `
 
@@ -101,10 +162,12 @@ export const Box = Styled.div`
 
     &::placeholder {
       color: ${props => props.theme.primaryTextColor};
-      /* background: ${props => props.theme.primaryTextColor || '#9F803C'}; */
-      background: transparent;
-      /* opacity: .9; */
-      line-height: 61px;
+       background: transparent;
+       line-height: 61px;
+    }
+
+    @media screen and (min-width: 320px) and (max-width: 768px) {
+      width: 267px;
     }
   }
 `
@@ -115,25 +178,35 @@ export const Img = Styled.img`
   bottom: -10px;
   opacity: ${props => props.theme.logoOpacity};
  
-
   @media screen and (min-width: 320px) and (max-width: 768px) {
-    width: 600px;
-    height: auto;
+    width: 440px;
+    height: 77%;
+    margin-left: -4.9em;
+  }
+
+  @media (min-width: 1024px) {
+    width: 230px;
+    height: 560px;
+  }
+
+  @media (min-width: 1280px) {
+    width: 360px;
+    height: 600px;
   }
 
   @media (min-width: 1366px) {
-    width: 400px;
-    height: auto;
+    width: 380px;
+    height: 660px;
   }
 
   @media (min-width: 1920px) {
-    width: 530px;
-    height: 1200px;
+    width: 520px;
+    height: 920px;
   }
 
   @media (min-width: 2560px) {
-    width: 700px;
-    height: 1200px;
+    width: 690px;
+    height: 1135px;
   }
 `
 
@@ -141,30 +214,58 @@ export const Title = Styled.div`
   font-family: Montserrat;
   font-size: 2.5em;
   font-weight: 500;
-  margin-left: .4em;
   letter-spacing: 17.5px;
   color: ${props => props.theme.primaryTextColor};
   text-transform: uppercase;
+
+  @media (min-width: 1920px) {
+    font-size: 3.7em;
+  }
+
+  @media (min-width: 1366px) {
+      letter-spacing: .5em;
+      margin-left: .4em;
+    }
 `
 
 export const CounterTick = Styled.div`
   text-align: center;
   margin: 0px 35px;
   
+  @media (min-width: 320px) and (max-width: 768px) {
+    margin: 0 10px;
+  }
+
   .title {
-  font-family: 'Montserrat';
-  font-size: 12px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  color: ${props => props.theme.primaryTextColor};
+    font-family: 'Montserrat';
+    font-size: 1em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: ${props => props.theme.primaryTextColor};
+
+    @media (min-width: 1920px) {
+      font-size: 1.1em;
+    }
+
+    @media (min-width: 320px) and (max-width: 768px) {
+      font-size: 10px !important;
+    }
   }
 
   .tick {
-  font-family: 'Bebas Neue';
-  font-size: 84px;
-  font-weight: bold;
-  letter-spacing: 2px;
-  color: ${props => props.theme.primaryTextColor};
+    font-family: 'Bebas Neue';
+    font-size: 5em;
+    font-weight: bold;
+    letter-spacing: 2px;
+    color: ${props => props.theme.primaryTextColor};
+
+    @media (min-width: 320px) and (max-width: 1023px) {
+      font-size: 60px !important;
+    }
+    
+    @media (min-width: 1920px) {
+      font-size: 8em;
+    }
   }
 `
 
