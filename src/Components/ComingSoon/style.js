@@ -1,4 +1,5 @@
 import Styled, { createGlobalStyle } from 'styled-components'
+import { normalize } from 'styled-normalize'
 import BG from '../../assets/images/background.jpg'
 
 const height = window.innerHeight
@@ -10,6 +11,8 @@ window.addEventListener('resize', () => {
 })
 
 export const GlobalStyle = createGlobalStyle`
+  ${normalize}
+
   html, body {
         margin: 0;
         padding: 0; 
@@ -22,6 +25,7 @@ export const GlobalStyle = createGlobalStyle`
         background-size: cover;
         width: 100%;
         height: ${height}px;
+        overflow-y: hidden !important;
   }
 
   .counterDiv {
@@ -168,7 +172,7 @@ export const Box = Styled.div`
     }
 
     @media screen and (min-width: 320px) and (max-width: 768px) {
-      width: 267px;
+      width: 95%;
       z-index: 1000;
     }
   }
@@ -180,33 +184,38 @@ export const Img = Styled.img`
   bottom: -10px;
   opacity: ${props => props.theme.logoOpacity};
  
-  @media screen and (min-width: 320px) and (max-width: 768px) {
+  @media screen and (min-width: 300px) and (max-width: 768px) {
     width: 300px;
     height: 77%;
     margin-left: -3.2em;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 769px) and (max-width: 1024px) {
     width: 230px;
     height: 560px;
   }
 
-  @media (min-width: 1280px) {
+  @media (min-width: 1025px) and (max-width: 1280px) {
     width: 360px;
-    height: 600px;
+    height: 580px;
   }
 
-  @media (min-width: 1366px) {
+  @media (min-width: 1281px) and (max-width: 1366px) {
     width: 380px;
-    height: 660px;
+    height: 580px;
   }
 
-  @media (min-width: 1920px) {
+  @media (min-width: 1367px) and (max-width: 1600px) {
+    width: 410px;
+    height: 740px;
+  }
+
+  @media (min-width: 1600px) and (max-width: 1920px) {
     width: 520px;
     height: 920px;
   }
 
-  @media (min-width: 2560px) {
+  @media (min-width: 1921px) and (max-width: 4000px) {
     width: 690px;
     height: 1135px;
   }
