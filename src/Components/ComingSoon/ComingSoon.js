@@ -29,7 +29,7 @@ const theme = {
   primaryTextColor: 'black',
   primaryBorderColor: 'black',
   logoOpacity: '.2',
-  isLoadingColor: 'white',
+  isLoadingColor: '#d8b153',
 }
 
 const invertedTheme = {
@@ -64,12 +64,10 @@ const ComingSoon = () => {
       }
     )
       .then(res => {
-        console.log('res :', res)
         setIsLoading(false)
         setHasMsg('Received your notify request ... Thank you!')
       })
       .catch(err => {
-        console.log('err :', err)
         setIsLoading(false)
         setHasMsg('Something went wrong please try again ... Thank you!')
       })
@@ -114,11 +112,17 @@ const ComingSoon = () => {
                 direction="column"
                 justify="flex-end"
                 align="center"
-                flex="1.6"
+                flex="1.5"
+                margin="2rem 0 0 0"
               >
-                <Title className="cs-text">Coming Soon</Title>
+                <Title>Coming Soon</Title>
               </Box>
-              <Box flex="1" justify="center" className="counterDiv">
+              <Box
+                flex="1"
+                justify="center"
+                className="counterDiv"
+                margin="1rem 0 0 0"
+              >
                 <Countdown
                   date={new Date('01/20/2020').getTime()}
                   renderer={renderer}
@@ -132,7 +136,7 @@ const ComingSoon = () => {
                 flex="1"
               >
                 <p className="notify-text">Get Notified when it's ready</p>
-                <Box flex="0">
+                <Box flex="0" justify="center" align="flex-start">
                   <Form onSubmit={handleSubmit}>
                     <input
                       className="input"
@@ -155,7 +159,15 @@ const ComingSoon = () => {
                     </Button>
                   </Form>
                 </Box>
-                <p className="has-msg">{hasMsg}</p>
+                <Box
+                  flex="1"
+                  direction="column"
+                  justify="flex-start"
+                  align="center"
+                  margin="1rem 0 0 0"
+                >
+                  <p className="has-msg">{hasMsg}</p>
+                </Box>
               </Box>
             </Grid>
           </Container>

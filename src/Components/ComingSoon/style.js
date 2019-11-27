@@ -2,20 +2,13 @@ import Styled, { createGlobalStyle } from 'styled-components'
 import { normalize } from 'styled-normalize'
 import BG from '../../assets/images/background.jpg'
 
-const height = window.innerHeight
-
-window.addEventListener('resize', () => {
-  document.getElementById(
-    'main-wrapper'
-  ).style.cssText = `height: ${window.innerHeight}px`
-})
-
 export const GlobalStyle = createGlobalStyle`
   ${normalize}
 
   html, body {
         margin: 0;
         padding: 0; 
+        box-sizing: border-box;
         font-family: 'Bebas Neue', cursive;
         font-family: 'Montserrat', sans-serif;
         background: url(${BG}) no-repeat center center fixed; 
@@ -24,106 +17,84 @@ export const GlobalStyle = createGlobalStyle`
         -o-background-size: cover;
         background-size: cover;
         width: 100%;
-        height: ${height}px;
-        overflow-y: hidden !important;
+        height: 100vh;
+        overflow-y: hidden;
   }
 
   .counterDiv {
-    margin-top: 20px;
+    margin-top: 2rem;
+
+    @media (max-width: 1024px) {
+      margin: 0;
+      flex: 2.5 !important;
+    }
   }
   
   .is-loading {
     color: ${props => props.theme.isLoadingColor};
-    font-size: 36px;
+    font-size: 3.6rem;
+
+    @media (min-width: 320px) and (max-width: 1023px) {
+      font-size: 2rem;
+    }
    }
 
   .is-complete {
-    font-size: 60px;
+    font-size: 6rem;
     font-weight: bold;
     color: ${props => props.theme.primaryTextColor};
   } 
 
   .has-msg {
-    margin-top: 12px !important;
+    margin: 1rem 0 0 0;
+    font-size: 1rem;
+    text-align: center;
 
-    @media screen and (min-width: 320px) and (max-width: 768px) {
-      font-size: 10px !important;
-      text-align: center;
-    } 
-  }
-  .top-div {
-    @media screen and (min-width: 320px) and (max-width: 768px) {
-      flex: 0 !important;
-      padding-top: 80px;
-
-      .cs-text {
-        font-size: 20px;
-        letter-spacing: 10px;
-      }
-    } 
-  }
-
-  .bottom-div {
-    @media screen and (min-width: 320px) and (max-width: 768px) {
-      flex: 1  !important;
-      padding-bottom: 40px;
-    } 
-
-    @media (min-width: 1024px) {
-      flex: 1  !important;
-      padding-bottom: 40px;
-    }
-
-    @media (min-width: 1280px) {
-      flex: 1  !important;
-      padding-bottom: 40px;
-    }
-
-    @media (min-width: 1366px) {
-      flex: 1  !important;
-      padding-bottom: 40px;
-    }
-
-    @media (min-width: 1920px) {
-      flex: 1  !important;
-      padding-bottom: 100px;
-    }
-
-    @media (min-width: 2560px) {
-      flex: 1  !important;
-      padding-bottom: 100px;
+    @media (min-width: 320px) and (max-width: 1023px) {
+      font-size: 12px;
+      padding: 0rem 1rem .5rem;
     }
   }
 
   .notify-text {
-    @media screen and (min-width: 320px) and (max-width: 768px) {
-      font-size: 12px !important;
+    text-align: center;
+
+    @media (min-width: 320px) and (max-width: 1023px) {
+      font-size: 12px;
+      letter-spacing: .1rem !important;
     }
+
   }
-  
+
+  .top-div {
+    @media (max-width: 1024px) {
+      flex: 0 !important;
+      padding-top: 8%;
+    } 
+  }
 `
 
 export const BGTransparent = Styled.div`
   position: absolute;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background: ${props => props.theme.main};
-  opacity: .8;  
-
+  opacity: .8;
 `
 
 export const Wrapper = Styled.div`
   position: absolute;
   width: 100%;
   overflow: hidden;
-  height: ${height}px;
+  height: 100vh;
+
 `
 
 export const Container = Styled.div`
   display: flex;
   flex: 1;
   justify-content: center;
-  height: 100%;
+  height: 100vh;
 `
 
 export const Grid = Styled.div`
@@ -140,142 +111,121 @@ export const Box = Styled.div`
   justify-content: ${props => props.justify || ''};
   flex-direction: ${props => props.direction || ''};
   align-items: ${props => props.align || ''};
+  
+  margin: ${props => props.margin || ''};
 
   & p {
     font-family: Montserrat;
-    font-size: 1em;
     font-weight: bold;
-    letter-spacing: 4px;
+    letter-spacing: .4rem;
     color: ${props => props.theme.primaryTextColor};
     text-transform: uppercase;
-    margin: 50px 0px 0px 0px;
+    margin: 0;
   }
 
   .input {
     background:  none;
     padding: 0;
-    width: 397px;
-    height: 60px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    border-right: none;
-    border: solid 2px ${props => props.theme.primaryBorderColor};
+    width: 35rem;
+    height: 6rem;
+    -webkit-border-top-left-radius: .5rem;
+    -webkit-border-bottom-left-radius: .5rem;
+    border-top-left-radius: .5rem;
+    border-bottom-left-radius: .5rem;
+    border-right: 0 !important;
+    -webkit-border-right: none;
+    -moz-border-right: none;
+    -o-border-right: none;
+    border: solid .2rem ${props => props.theme.primaryBorderColor};
     text-align: center;
-    font-size: 14px;
+    font-size: 1.4rem;
     color: ${props => props.theme.primaryTextColor};
     outline: none;
+    z-index: 20;
 
     &::placeholder {
       color: ${props => props.theme.primaryTextColor};
-       background: transparent;
-       line-height: 61px;
+      background: transparent;
+      line-height: 6.1rem;
+
+      @media (min-width: 320px) and (max-width: 1023px) {
+        font-size: 1rem;
+      }
     }
 
-    @media screen and (min-width: 320px) and (max-width: 768px) {
-      width: 95%;
-      z-index: 1000;
-    }
+   @media (min-width: 320px) and (max-width: 1023px) {
+    width: 15rem;
+    height: 3.5rem;
+   } 
+
+   @media (max-width: 320px) {
+    width: 13rem;
+    height: 3.5rem;
+   } 
   }
 `
 
 export const Img = Styled.img`
   position: absolute;
-  left: -10px;
-  bottom: -10px;
+  left: -1rem;
+  bottom: -1rem;
   opacity: ${props => props.theme.logoOpacity};
- 
-  @media screen and (min-width: 300px) and (max-width: 768px) {
-    width: 300px;
-    height: 77%;
-    margin-left: -3.2em;
-  }
+  z-index: 0;
+  width: 27.3%;
+  height: 83%;
 
-  @media (min-width: 769px) and (max-width: 1024px) {
-    width: 230px;
-    height: 560px;
-  }
-
-  @media (min-width: 1025px) and (max-width: 1280px) {
-    width: 360px;
-    height: 580px;
-  }
-
-  @media (min-width: 1281px) and (max-width: 1366px) {
-    width: 380px;
-    height: 580px;
-  }
-
-  @media (min-width: 1367px) and (max-width: 1600px) {
-    width: 410px;
-    height: 740px;
-  }
-
-  @media (min-width: 1600px) and (max-width: 1920px) {
-    width: 520px;
-    height: 920px;
-  }
-
-  @media (min-width: 1921px) and (max-width: 4000px) {
-    width: 690px;
-    height: 1135px;
+  @media (min-width: 320px) and (max-width: 460px) {
+    left: -3.5rem;
+    bottom: 2rem;
+    width: 80%;
+    height: 75%;
   }
 `
 
 export const Title = Styled.div`
   font-family: Montserrat;
-  font-size: 2.5em;
+  font-size: 3.7rem;
   font-weight: 500;
-  letter-spacing: 17.5px;
+  letter-spacing: 1rem;
   color: ${props => props.theme.primaryTextColor};
   text-transform: uppercase;
 
-  @media (min-width: 1920px) {
-    font-size: 3.7em;
+  @media (min-width: 320px) and (max-width: 1023px) {
+    font-size: 1rem;
+    margin-top: 1rem;
+    letter-spacing: .8rem;
   }
-
-  @media (min-width: 1366px) {
-      letter-spacing: .5em;
-      margin-left: .4em;
-    }
 `
 
 export const CounterTick = Styled.div`
   text-align: center;
-  margin: 0px 35px;
+  margin: 0px 3rem;
   
-  @media (min-width: 320px) and (max-width: 768px) {
-    margin: 0 10px;
+  @media (min-width: 320px) and (max-width: 1023px) {
+    margin: .8rem;
   }
 
   .title {
     font-family: 'Montserrat';
-    font-size: 1em;
+    font-size: .9rem;
     font-weight: bold;
-    letter-spacing: 2px;
+    letter-spacing: .2rem;
     color: ${props => props.theme.primaryTextColor};
 
-    @media (min-width: 1920px) {
-      font-size: 1.1em;
-    }
-
-    @media (min-width: 320px) and (max-width: 768px) {
-      font-size: 10px !important;
+    @media (min-width: 320px) and (max-width: 1023px) {
+      font-size: .5rem;
     }
   }
 
   .tick {
     font-family: 'Bebas Neue';
-    font-size: 5em;
+    font-size: 5.5rem;
     font-weight: bold;
-    letter-spacing: 2px;
+    letter-spacing: .2rem;
     color: ${props => props.theme.primaryTextColor};
 
     @media (min-width: 320px) and (max-width: 1023px) {
-      font-size: 60px !important;
-    }
-    
-    @media (min-width: 1920px) {
-      font-size: 8em;
+      font-size: 2rem;
     }
   }
 `
@@ -283,43 +233,70 @@ export const CounterTick = Styled.div`
 export const Button = Styled.button`
   background: ${props => props.theme.primaryTextColor};
   color: ${props => props.theme.primaryTextColor};
-  width: 48px;
-  height: 64px;  
+  width: 4.8rem;
+  height: 6.4rem;  
   border: none;
-  border-top-right-radius: 10px;
-  border-bottom-right-radius: 10px;
+  border-top-right-radius: .5rem;
+  border-bottom-right-radius: .5rem;
   padding: 0;
   text-align: center;
   cursor: pointer;
   outline: none;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  
 
   & img {
-    margin-top: 3px;
     transition: all .5s;
 
     &:hover {
       transform: scale(1.5);
+
+      @media (min-width: 320px) and (max-width: 1023px) {
+        transform: scale(1.3);
+      } 
     }
   }
+
+  @media (min-width: 320px) and (max-width: 1023px) {
+    width: 2.4rem;
+    height: 3.9rem;
+   } 
 `
 
 export const ToggleBtn = Styled.button`
     position: absolute;
-    right: 20px;
-    top: 20px;
-    font-size: 36px;
+    right: 2rem;
+    top: 2rem;
+    font-size: 3rem;
     background: transparent;
     border: none; 
     z-index: 3;
     cursor: pointer;
     outline: none;
 
-    i {
-      color: ${props => props.theme.primaryTextColor}
+    @media (min-width: 320px) and (max-width: 1023px) {
+        right: 1rem;
+        top: 0;
     }
+
+    i {
+      color: ${props => props.theme.primaryTextColor};
+      font-size: 3rem;
+
+      @media (min-width: 320px) and (max-width: 1023px) {
+        font-size: 1rem;
+      }
+    }  
 `
 
 export const Form = Styled.form`
   display: flex;
-  margin-top: 10px;
+  margin-top: 1rem;
+
+  @media (min-width: 320px) and (max-width: 1023px) {
+    margin-top: 1rem;
+  }
 `
